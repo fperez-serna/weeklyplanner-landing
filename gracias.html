@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Gracias! — Weekly Planner</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#f0ebe6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .card{background:#fff;border-radius:20px;padding:2.5rem 2rem;max-width:420px;width:100%;text-align:center;border:0.5px solid rgba(0,0,0,.08);}
+  .logo{width:80px;height:80px;border-radius:14px;margin-bottom:20px;object-fit:cover;}
+  h1{font-size:24px;font-weight:500;color:#1a1a1a;margin-bottom:8px;}
+  .subtitle{font-size:15px;color:#666;margin-bottom:24px;line-height:1.5;}
+  .steps{text-align:left;background:#f8f6f4;border-radius:12px;padding:16px 20px;margin-bottom:24px;}
+  .step{display:flex;align-items:flex-start;gap:12px;padding:8px 0;border-bottom:0.5px solid rgba(0,0,0,.06);}
+  .step:last-child{border-bottom:none;}
+  .step-num{width:24px;height:24px;border-radius:50%;background:#B75D69;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .step-text{font-size:13px;color:#444;line-height:1.5;}
+  .btn{display:block;width:100%;padding:14px;border-radius:12px;background:#B75D69;color:#fff;font-size:15px;font-weight:500;text-decoration:none;margin-bottom:12px;}
+  .note{font-size:11px;color:#999;line-height:1.6;}
+  .lang-toggle{display:flex;gap:8px;justify-content:center;margin-bottom:20px;}
+  .lang-btn{padding:4px 12px;border-radius:99px;border:0.5px solid #B75D69;background:none;color:#B75D69;font-size:12px;cursor:pointer;}
+  .lang-btn.active{background:#B75D69;color:#fff;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('es')">🇲🇽 Español</button>
+    <button class="lang-btn" onclick="setLang('en')">🇺🇸 English</button>
+  </div>
+
+  <h1 id="title">¡Bienvenida a Weekly Planner! 🎉</h1>
+  <p class="subtitle" id="subtitle">Tu pago fue procesado exitosamente. Ya tienes acceso completo.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-text" id="step1">Abre el app en <strong>app.myweeklyplanner.app</strong></div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-text" id="step2">Da click en <strong>"Olvidé mi contraseña"</strong> con el email que usaste al comprar — te llegará un correo para crear tu contraseña (revisa spam si no lo ves)</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-text" id="step3">Revisa tu correo, crea tu contraseña y regresa al app</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-text" id="step4">Inicia sesión — tu acceso anual ya está activado automáticamente</div>
+    </div>
+  </div>
+
+  <a href="https://app.myweeklyplanner.app" class="btn" id="cta">Abrir Weekly Planner →</a>
+  <p class="note" id="note">Recibirás un recibo por email. Tu acceso es válido por un año.<br>¿Dudas? Escríbenos a contacto@myweeklyplanner.app</p>
+</div>
+
+<script>
+const texts = {
+  es: {
+    title: '¡Bienvenida a Weekly Planner! 🎉',
+    subtitle: 'Tu pago fue procesado exitosamente. Ya tienes acceso completo.',
+    step1: 'Abre el app en <strong>app.myweeklyplanner.app</strong>',
+    step2: 'Da click en <strong>"Olvidé mi contraseña"</strong> con el email que usaste al comprar — te llegará un correo para crear tu contraseña (revisa spam si no lo ves)',
+    step3: 'Revisa tu correo, crea tu contraseña y regresa al app',
+    step4: '¡Listo! Inicia sesión — tu acceso anual ya está activado',
+    cta: 'Abrir Weekly Planner →',
+    note: 'Recibirás un recibo por email. Tu acceso es válido por un año.<br>¿Dudas? Escríbenos a contacto@myweeklyplanner.app'
+  },
+  en: {
+    title: 'Welcome to Weekly Planner! 🎉',
+    subtitle: 'Your payment was processed successfully. You now have full access.',
+    step1: 'Open the app at <strong>app.myweeklyplanner.app</strong>',
+    step2: 'Click <strong>"Forgot my password"</strong> with the email you used to purchase — you\'ll receive an email to create your password (check spam if you don\'t see it)',
+    step3: 'Check your email, create your password and come back to the app',
+    step4: 'Log in — your annual access is already automatically activated',
+    cta: 'Open Weekly Planner →',
+    note: 'You\'ll receive a receipt by email. Your access is valid for one year.<br>Questions? Email us at contacto@myweeklyplanner.app'
+  }
+};
+
+function setLang(lang) {
+  const t = texts[lang];
+  document.getElementById('title').textContent = t.title;
+  document.getElementById('subtitle').textContent = t.subtitle;
+  document.getElementById('step1').innerHTML = t.step1;
+  document.getElementById('step2').innerHTML = t.step2;
+  document.getElementById('step3').textContent = t.step3;
+  document.getElementById('step4').textContent = t.step4;
+  document.getElementById('cta').textContent = t.cta;
+  document.getElementById('note').innerHTML = t.note;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  document.documentElement.lang = lang;
+}
+
+// Auto detect browser language
+if(navigator.language.startsWith('en')) setLang('en');
+</script>
+</body>
+</html>
