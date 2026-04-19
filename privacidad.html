@@ -297,19 +297,52 @@
     vertical-align: middle;
   }
 
+  /* Lang toggle */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,.1);
+    border: 0.5px solid rgba(255,255,255,.25);
+    border-radius: 99px;
+    padding: 4px 12px;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgba(255,255,255,.85);
+    transition: background .15s;
+    margin-left: auto;
+  }
+  .lang-toggle:hover { background: rgba(255,255,255,.18); }
+  .lang-toggle .flag { font-size: 14px; }
+
+  [data-lang="en"] .es-text { display: none; }
+  [data-lang="en"] .en-text { display: block; }
+  [data-lang="es"] .en-text { display: none; }
+  [data-lang="es"] .es-text { display: block; }
+  .en-text, .es-text { display: block; }
+
   @media(max-width:480px) {
     .arco-grid { grid-template-columns: 1fr 1fr; }
     .hero { padding: 36px 20px 44px; }
   }
 </style>
 </head>
-<body>
+<body data-lang="es">
 
 <!-- Header -->
-<div style="background:var(--navy);padding:10px 24px;">
+<div style="background:var(--navy);padding:10px 24px;display:flex;align-items:center;">
   <a href="/" style="display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:500;transition:color .15s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,.6)'">
-    ← Regresar al inicio
+    <span class="es-text">← Regresar al inicio</span>
+    <span class="en-text">← Back to home</span>
   </a>
+  <button class="lang-toggle" onclick="toggleLang()" id="langBtn">
+    <span class="flag es-text">🇺🇸</span>
+    <span class="flag en-text">🇲🇽</span>
+    <span class="es-text">English</span>
+    <span class="en-text">Español</span>
+  </button>
 </div>
 <div class="header">
   <div class="header-logo" style="background:none;padding:0;overflow:hidden;">
@@ -323,9 +356,18 @@
 
 <!-- Hero -->
 <div class="hero">
-  <div class="hero-tag">🔒 Privacidad</div>
-  <h1>Aviso de Privacidad</h1>
-  <p>Tu información es tuya. Aquí te explicamos cómo la usamos y protegemos.</p>
+  <div class="hero-tag">
+    <span class="es-text">🔒 Privacidad</span>
+    <span class="en-text">🔒 Privacy</span>
+  </div>
+  <h1>
+    <span class="es-text">Aviso de Privacidad</span>
+    <span class="en-text">Privacy Notice</span>
+  </h1>
+  <p>
+    <span class="es-text">Tu información es tuya. Aquí te explicamos cómo la usamos y protegemos.</span>
+    <span class="en-text">Your information belongs to you. Here's how we use and protect it.</span>
+  </p>
 </div>
 
 <div class="container">
@@ -333,17 +375,24 @@
   <!-- Date badge -->
   <div class="date-badge">
     <div class="date-dot"></div>
-    <div class="date-text">Última actualización: <strong>Abril 2026</strong> · Versión 1.0 · Aplica para todos los usuarios de Weekly Planner</div>
+    <div class="date-text">
+      <span class="es-text">Última actualización: <strong>Abril 2026</strong> · Versión 1.0 · Aplica para todos los usuarios de Weekly Planner</span>
+      <span class="en-text">Last updated: <strong>April 2026</strong> · Version 1.0 · Applies to all Weekly Planner users</span>
+    </div>
   </div>
 
   <!-- Responsable -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-mauve">👤</div>
-      <div class="section-title">¿Quién es responsable de tus datos?</div>
+      <div class="section-title">
+        <span class="es-text">¿Quién es responsable de tus datos?</span>
+        <span class="en-text">Who is responsible for your data?</span>
+      </div>
     </div>
     <div class="section-body">
-      <strong>María Fernanda Pérez Salinas Serna</strong>, persona física con domicilio en Mérida, Yucatán, México, es la responsable del tratamiento de tus datos personales conforme a la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong> y su reglamento.
+      <span class="es-text"><strong>María Fernanda Pérez Salinas Serna</strong>, persona física con domicilio en Mérida, Yucatán, México, es la responsable del tratamiento de tus datos personales conforme a la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong> y su reglamento.</span>
+      <span class="en-text"><strong>María Fernanda Pérez Salinas Serna</strong>, an individual based in Mérida, Yucatán, México, is responsible for the processing of your personal data in accordance with the <strong>Federal Law on Protection of Personal Data Held by Private Parties (LFPDPPP)</strong> and its regulations.</span>
     </div>
   </div>
 
@@ -351,15 +400,31 @@
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-teal">📋</div>
-      <div class="section-title">¿Qué datos recopilamos?</div>
+      <div class="section-title">
+        <span class="es-text">¿Qué datos recopilamos?</span>
+        <span class="en-text">What data do we collect?</span>
+      </div>
     </div>
     <div class="section-body">
-      Recopilamos únicamente los datos necesarios para prestarte el servicio:
+      <span class="es-text">Recopilamos únicamente los datos necesarios para prestarte el servicio:</span>
+      <span class="en-text">We collect only the data necessary to provide you with the service:</span>
       <ul>
-        <li><strong>Datos de cuenta:</strong> correo electrónico y contraseña (almacenada de forma cifrada mediante Firebase Authentication).</li>
-        <li><strong>Datos que tú ingresas:</strong> tareas, gastos, hábitos, workouts, listas de compras, presupuesto mensual, ingresos y deudas.</li>
-        <li><strong>Datos de calendario:</strong> si conectas Google Calendar, accedemos a tus eventos para mostrarlos dentro de la app. No los modificamos sin tu acción.</li>
-        <li><strong>Datos técnicos:</strong> fecha de creación de cuenta, última sesión y registros de errores anónimos.</li>
+        <li>
+          <span class="es-text"><strong>Datos de cuenta:</strong> correo electrónico y contraseña (almacenada de forma cifrada mediante Firebase Authentication).</span>
+          <span class="en-text"><strong>Account data:</strong> email address and password (stored encrypted via Firebase Authentication).</span>
+        </li>
+        <li>
+          <span class="es-text"><strong>Datos que tú ingresas:</strong> tareas, gastos, hábitos, workouts, listas de compras, presupuesto mensual, ingresos y deudas.</span>
+          <span class="en-text"><strong>Data you enter:</strong> tasks, expenses, habits, workouts, shopping lists, monthly budget, income, and debts.</span>
+        </li>
+        <li>
+          <span class="es-text"><strong>Datos de calendario:</strong> si conectas Google Calendar, accedemos a tus eventos para mostrarlos dentro de la app. No los modificamos sin tu acción.</span>
+          <span class="en-text"><strong>Calendar data:</strong> if you connect Google Calendar, we access your events to display them within the app. We do not modify them without your action.</span>
+        </li>
+        <li>
+          <span class="es-text"><strong>Datos técnicos:</strong> fecha de creación de cuenta, última sesión y registros de errores anónimos.</span>
+          <span class="en-text"><strong>Technical data:</strong> account creation date, last session, and anonymous error logs.</span>
+        </li>
       </ul>
     </div>
   </div>
@@ -368,19 +433,39 @@
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-mauve">🎯</div>
-      <div class="section-title">¿Para qué usamos tus datos?</div>
+      <div class="section-title">
+        <span class="es-text">¿Para qué usamos tus datos?</span>
+        <span class="en-text">How do we use your data?</span>
+      </div>
     </div>
     <div class="section-body">
-      Tus datos se utilizan <strong>exclusivamente</strong> para:
+      <span class="es-text">Tus datos se utilizan <strong>exclusivamente</strong> para:</span>
+      <span class="en-text">Your data is used <strong>exclusively</strong> for:</span>
       <ul>
-        <li>Crear y mantener tu cuenta de usuario.</li>
-        <li>Sincronizar tu información entre dispositivos en tiempo real.</li>
-        <li>Generar tus reportes mensuales de gastos, hábitos y productividad.</li>
-        <li>Mostrar eventos de tu Google Calendar dentro de la app (solo si lo autorizas).</li>
-        <li>Mejorar el servicio mediante análisis anónimos de uso.</li>
+        <li>
+          <span class="es-text">Crear y mantener tu cuenta de usuario.</span>
+          <span class="en-text">Creating and maintaining your user account.</span>
+        </li>
+        <li>
+          <span class="es-text">Sincronizar tu información entre dispositivos en tiempo real.</span>
+          <span class="en-text">Syncing your information across devices in real time.</span>
+        </li>
+        <li>
+          <span class="es-text">Generar tus reportes mensuales de gastos, hábitos y productividad.</span>
+          <span class="en-text">Generating your monthly reports on expenses, habits, and productivity.</span>
+        </li>
+        <li>
+          <span class="es-text">Mostrar eventos de tu Google Calendar dentro de la app (solo si lo autorizas).</span>
+          <span class="en-text">Displaying your Google Calendar events within the app (only if authorized).</span>
+        </li>
+        <li>
+          <span class="es-text">Mejorar el servicio mediante análisis anónimos de uso.</span>
+          <span class="en-text">Improving the service through anonymous usage analytics.</span>
+        </li>
       </ul>
       <br>
-      <strong>No vendemos, compartimos ni rentamos tus datos a terceros con fines comerciales.</strong>
+      <span class="es-text"><strong>No vendemos, compartimos ni rentamos tus datos a terceros con fines comerciales.</strong></span>
+      <span class="en-text"><strong>We do not sell, share, or rent your data to third parties for commercial purposes.</strong></span>
     </div>
   </div>
 
@@ -388,11 +473,16 @@
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-teal">🗄️</div>
-      <div class="section-title">¿Dónde se almacenan tus datos?</div>
+      <div class="section-title">
+        <span class="es-text">¿Dónde se almacenan tus datos?</span>
+        <span class="en-text">Where is your data stored?</span>
+      </div>
     </div>
     <div class="section-body">
-      Tus datos se almacenan en <strong>Google Firebase</strong> (Firestore Database y Authentication), infraestructura de Google LLC bajo sus estándares internacionales de seguridad ISO 27001 y SOC 2/3.<br><br>
-      La transmisión de datos se realiza mediante conexiones cifradas <strong>HTTPS/TLS</strong>. Puedes consultar las políticas de seguridad de Firebase en <strong>firebase.google.com/support/privacy</strong>.
+      <span class="es-text">Tus datos se almacenan en <strong>Google Firebase</strong> (Firestore Database y Authentication), infraestructura de Google LLC bajo sus estándares internacionales de seguridad ISO 27001 y SOC 2/3.<br><br>
+      La transmisión de datos se realiza mediante conexiones cifradas <strong>HTTPS/TLS</strong>. Puedes consultar las políticas de seguridad de Firebase en <strong>firebase.google.com/support/privacy</strong>.</span>
+      <span class="en-text">Your data is stored in <strong>Google Firebase</strong> (Firestore Database and Authentication), Google LLC infrastructure under international security standards ISO 27001 and SOC 2/3.<br><br>
+      Data transmission is performed through encrypted <strong>HTTPS/TLS</strong> connections. You can review Firebase's security policies at <strong>firebase.google.com/support/privacy</strong>.</span>
     </div>
   </div>
 
@@ -400,34 +490,63 @@
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-mauve">⚖️</div>
-      <div class="section-title">Tus derechos ARCO</div>
+      <div class="section-title">
+        <span class="es-text">Tus derechos ARCO</span>
+        <span class="en-text">Your ARCO Rights</span>
+      </div>
     </div>
     <div class="section-body">
-      Conforme a la LFPDPPP, tienes derecho a:
+      <span class="es-text">Conforme a la LFPDPPP, tienes derecho a:</span>
+      <span class="en-text">Under the LFPDPPP, you have the right to:</span>
       <div class="arco-grid">
         <div class="arco-item">
           <div class="arco-letter">A</div>
-          <div class="arco-word">Acceso</div>
-          <div class="arco-desc">Conocer qué datos tenemos sobre ti</div>
+          <div class="arco-word">
+            <span class="es-text">Acceso</span>
+            <span class="en-text">Access</span>
+          </div>
+          <div class="arco-desc">
+            <span class="es-text">Conocer qué datos tenemos sobre ti</span>
+            <span class="en-text">Know what data we hold about you</span>
+          </div>
         </div>
         <div class="arco-item">
           <div class="arco-letter">R</div>
-          <div class="arco-word">Rectificación</div>
-          <div class="arco-desc">Corregir datos inexactos o incompletos</div>
+          <div class="arco-word">
+            <span class="es-text">Rectificación</span>
+            <span class="en-text">Rectification</span>
+          </div>
+          <div class="arco-desc">
+            <span class="es-text">Corregir datos inexactos o incompletos</span>
+            <span class="en-text">Correct inaccurate or incomplete data</span>
+          </div>
         </div>
         <div class="arco-item">
           <div class="arco-letter">C</div>
-          <div class="arco-word">Cancelación</div>
-          <div class="arco-desc">Solicitar la eliminación de tus datos</div>
+          <div class="arco-word">
+            <span class="es-text">Cancelación</span>
+            <span class="en-text">Cancellation</span>
+          </div>
+          <div class="arco-desc">
+            <span class="es-text">Solicitar la eliminación de tus datos</span>
+            <span class="en-text">Request the deletion of your data</span>
+          </div>
         </div>
         <div class="arco-item">
           <div class="arco-letter">O</div>
-          <div class="arco-word">Oposición</div>
-          <div class="arco-desc">Oponerte al tratamiento de tus datos</div>
+          <div class="arco-word">
+            <span class="es-text">Oposición</span>
+            <span class="en-text">Opposition</span>
+          </div>
+          <div class="arco-desc">
+            <span class="es-text">Oponerte al tratamiento de tus datos</span>
+            <span class="en-text">Object to the processing of your data</span>
+          </div>
         </div>
       </div>
       <br>
-      Para ejercer cualquiera de estos derechos, escríbenos a <strong>contacto@myweeklyplanner.app</strong>. Responderemos en un plazo máximo de <strong>20 días hábiles</strong>.
+      <span class="es-text">Para ejercer cualquiera de estos derechos, escríbenos a <strong>contacto@myweeklyplanner.app</strong>. Responderemos en un plazo máximo de <strong>20 días hábiles</strong>.</span>
+      <span class="en-text">To exercise any of these rights, write to us at <strong>contacto@myweeklyplanner.app</strong>. We will respond within a maximum of <strong>20 business days</strong>.</span>
     </div>
   </div>
 
@@ -435,11 +554,16 @@
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-teal">🍪</div>
-      <div class="section-title">Cookies y rastreo</div>
+      <div class="section-title">
+        <span class="es-text">Cookies y rastreo</span>
+        <span class="en-text">Cookies and tracking</span>
+      </div>
     </div>
     <div class="section-body">
-      Weekly Planner <strong>no utiliza cookies de rastreo publicitario</strong> ni comparte tu comportamiento de navegación con plataformas de marketing o publicidad de terceros.<br><br>
-      Únicamente utilizamos almacenamiento local del navegador (localStorage) para guardar tus preferencias de configuración de forma temporal en tu dispositivo.
+      <span class="es-text">Weekly Planner <strong>no utiliza cookies de rastreo publicitario</strong> ni comparte tu comportamiento de navegación con plataformas de marketing o publicidad de terceros.<br><br>
+      Únicamente utilizamos almacenamiento local del navegador (localStorage) para guardar tus preferencias de configuración de forma temporal en tu dispositivo.</span>
+      <span class="en-text">Weekly Planner <strong>does not use advertising tracking cookies</strong> and does not share your browsing behavior with third-party marketing or advertising platforms.<br><br>
+      We only use local browser storage (localStorage) to temporarily save your configuration preferences on your device.</span>
     </div>
   </div>
 
@@ -447,17 +571,25 @@
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-brown">📝</div>
-      <div class="section-title">Cambios a este aviso</div>
+      <div class="section-title">
+        <span class="es-text">Cambios a este aviso</span>
+        <span class="en-text">Changes to this notice</span>
+      </div>
     </div>
     <div class="section-body">
-      Cualquier modificación a este aviso de privacidad será notificada dentro de la app. La versión vigente siempre estará disponible en esta página: <strong>myweeklyplanner.app/privacidad</strong>.<br><br>
-      El uso continuado de Weekly Planner después de la publicación de cambios implica la aceptación del aviso actualizado.
+      <span class="es-text">Cualquier modificación a este aviso de privacidad será notificada dentro de la app. La versión vigente siempre estará disponible en esta página: <strong>myweeklyplanner.app/privacidad</strong>.<br><br>
+      El uso continuado de Weekly Planner después de la publicación de cambios implica la aceptación del aviso actualizado.</span>
+      <span class="en-text">Any changes to this privacy notice will be announced within the app. The current version will always be available at: <strong>myweeklyplanner.app/privacidad</strong>.<br><br>
+      Continued use of Weekly Planner after changes are published implies acceptance of the updated notice.</span>
     </div>
   </div>
 
   <!-- Contacto -->
   <div class="contact-box">
-    <p>¿Tienes dudas sobre tu privacidad o quieres ejercer tus derechos ARCO?</p>
+    <p>
+      <span class="es-text">¿Tienes dudas sobre tu privacidad o quieres ejercer tus derechos ARCO?</span>
+      <span class="en-text">Questions about your privacy or want to exercise your ARCO rights?</span>
+    </p>
     <a href="mailto:contacto@myweeklyplanner.app" class="contact-email">contacto@myweeklyplanner.app</a>
   </div>
 
@@ -465,9 +597,22 @@
 
 <!-- Footer -->
 <div class="footer">
-  © 2026 Weekly Planner · María Fernanda Pérez Salinas Serna · Mérida, Yucatán, México<br>
-  <a href="https://app.myweeklyplanner.app">Ir al app</a>
+  <span class="es-text">© 2026 Weekly Planner · María Fernanda Pérez Salinas Serna · Mérida, Yucatán, México</span>
+  <span class="en-text">© 2026 Weekly Planner · María Fernanda Pérez Salinas Serna · Mérida, Yucatán, México</span>
+  <br>
+  <a href="https://app.myweeklyplanner.app">
+    <span class="es-text">Ir al app</span>
+    <span class="en-text">Go to app</span>
+  </a>
 </div>
+
+<script>
+  function toggleLang() {
+    const body = document.body;
+    const current = body.getAttribute('data-lang');
+    body.setAttribute('data-lang', current === 'es' ? 'en' : 'es');
+  }
+</script>
 
 </body>
 </html>
