@@ -999,6 +999,7 @@
 
     document.querySelector('.hero-h1').innerHTML = t.heroTitle;
     document.querySelector('.hero-sub').innerHTML = t.heroSub;
+    document.querySelector('.hero-sub').style.maxWidth = lang === 'en' ? 'none' : '';
     document.querySelector('.btn-compra').textContent = t.btnCompra;
     document.querySelector('.precio-hint').textContent = t.precioHint;
 
