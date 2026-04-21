@@ -460,6 +460,36 @@
     display: flex;
     gap: 24px;
   }
+  /* ── LANG TOGGLE ─────────────────── */
+  .lang-toggle {
+    position: fixed;
+    top: 18px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    border: 2px solid var(--navy);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 3px 3px 0 var(--navy);
+  }
+  .lang-toggle button {
+    background: var(--beige);
+    border: none;
+    padding: 7px 13px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    cursor: pointer;
+    color: var(--navy);
+    transition: background .15s, color .15s;
+  }
+  .lang-toggle button.active {
+    background: var(--navy);
+    color: var(--beige);
+  }
+  .lang-toggle button:not(.active):hover { background: var(--taupe); }
+
   .footer-links a {
     font-size: 13px;
     color: rgba(255,255,255,.45);
@@ -516,6 +546,10 @@
 </style>
 </head>
 <body>
+<div class="lang-toggle">
+  <button id="lang-es-btn" class="active" onclick="setLang('es')">ES</button>
+  <button id="lang-en-btn" onclick="setLang('en')">EN</button>
+</div>
 
 <!-- ── HERO ──────────────────────────── -->
 <section class="hero">
@@ -805,7 +839,7 @@
 
   <!-- Instagram -->
   <div style="margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:12px;">
-    <p style="font-size:13px;color:var(--navy);opacity:.5;text-transform:uppercase;letter-spacing:.08em;font-weight:600;">Síguenos</p>
+    <p id="siguenos-text" style="font-size:13px;color:var(--navy);opacity:.5;text-transform:uppercase;letter-spacing:.08em;font-weight:600;">Síguenos</p>
     <a href="https://www.instagram.com/weeklyplanner.app?igsh=MWFlaXFtM2hyeWhwaw%3D%3D&utm_source=qr" target="_blank"
       style="display:inline-flex;align-items:center;gap:10px;background:var(--navy);color:white;padding:12px 24px;border-radius:99px;text-decoration:none;font-family:'Barlow',sans-serif;font-size:14px;font-weight:600;box-shadow:3px 3px 0 var(--rosa);transition:transform .15s,box-shadow .15s;"
       onmouseover="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='5px 5px 0 var(--rosa)'"
@@ -859,6 +893,126 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── LANG TOGGLE ──────────────────────────────────────────────────────────
+  const i18n = {
+    es: {
+      title: 'Weekly Planner — Tu tiempo. Sin reboltijos.',
+      heroTitle: 'TU TIEMPO.<br>SIN <span class="rosa">REBOLTIJOS.</span>',
+      heroSub: '<span style="color:var(--rosa);font-weight:600;">El Weekly Planner que no te agobia.</span><br>Todo lo que necesitas, nada que sobra.',
+      btnCompra: 'Compra aquí',
+      precioHint: '$499 MXN / año · Código de descuento disponible',
+      taglines: ['Tu tiempo', 'Sin reboltijos', 'Adulto funcional', '$499 MXN / año'],
+      sectionIntroH2: 'Simple. Al grano.',
+      sectionIntroP: 'Todo lo que realmente necesita un adulto funcional.',
+      featureTitles: ['Tu semana', 'Gastos', 'Presupuesto', 'Hábitos'],
+      featureDescs: [
+        'Vista semanal clara. Navega entre días, ve tus eventos y pendientes de un vistazo.',
+        'Registra lo que gastas cada día por categoría. Sin hojas de cálculo, sin drama.',
+        'Planea tu mes, controla tus deudas y ve exactamente cuánto te queda disponible.',
+        'Workouts, hábitos diarios y lista de compras. Todo en un solo lugar, siempre contigo.'
+      ],
+      screenshotLabels: ['Vista semanal', 'Gastos del día', 'Presupuesto mensual'],
+      precioH2: 'El planner<br>que no te<br>agobia.',
+      precioP: 'Un solo precio, acceso completo. Sin suscripciones mensuales que se te olvidan, sin costos escondidos.',
+      precioBadge: '⭐ Acceso completo',
+      precioPeriodo: 'MXN / año — menos de $42 al mes',
+      precioItems: ['Vista semanal y diaria','Gastos y categorías','Presupuesto mensual','Préstamos y deudas','Hábitos y workouts','Lista de compras','Reporte mensual','Respaldos automáticos','Google Calendar sync'],
+      btnEmpezar: 'Empezar ahora →',
+      descuentoHint: '🏷️ ¿Tienes código de descuento? Lo aplicas al comprar.',
+      contactH2: '¿Tienes preguntas?',
+      contactP: 'Escríbenos y te respondemos a la brevedad.',
+      phNombre: 'Tu nombre',
+      phEmail: 'Tu correo',
+      phMensaje: '¿En qué te podemos ayudar?',
+      btnEnviar: 'Enviar mensaje →',
+      successMsg: '✅ ¡Mensaje enviado! Te respondemos pronto.',
+      siguenos: 'Síguenos',
+      entrarApp: 'Entrar al app',
+      avisoPriv: 'Aviso de privacidad',
+    },
+    en: {
+      title: 'Weekly Planner — Your time. No clutter.',
+      heroTitle: 'YOUR TIME.<br>NO <span class="rosa">CLUTTER.</span>',
+      heroSub: '<span style="color:var(--rosa);font-weight:600;">The Weekly Planner that won\'t overwhelm you.</span><br>Everything you need, nothing extra.',
+      btnCompra: 'Buy here',
+      precioHint: '$499 MXN / year · Discount code available',
+      taglines: ['Your time', 'No clutter', 'Functional adult', '$499 MXN / year'],
+      sectionIntroH2: 'Simple. To the point.',
+      sectionIntroP: 'Everything a functional adult actually needs.',
+      featureTitles: ['Your week', 'Expenses', 'Budget', 'Habits'],
+      featureDescs: [
+        'Clear weekly view. Navigate between days, see your events and to-dos at a glance.',
+        'Track what you spend each day by category. No spreadsheets, no drama.',
+        'Plan your month, manage your debts, and see exactly how much you have left.',
+        'Workouts, daily habits, and shopping list. All in one place, always with you.'
+      ],
+      screenshotLabels: ['Weekly view', 'Daily expenses', 'Monthly budget'],
+      precioH2: 'The planner<br>that won\'t<br>overwhelm you.',
+      precioP: 'One price, full access. No monthly subscriptions you forget about, no hidden costs.',
+      precioBadge: '⭐ Full access',
+      precioPeriodo: 'MXN / year — less than $42/month',
+      precioItems: ['Weekly and daily view','Expenses and categories','Monthly budget','Loans and debts','Habits and workouts','Shopping list','Monthly report','Automatic backups','Google Calendar sync'],
+      btnEmpezar: 'Get started →',
+      descuentoHint: '🏷️ Have a discount code? Apply it at checkout.',
+      contactH2: 'Have questions?',
+      contactP: 'Write to us and we\'ll get back to you shortly.',
+      phNombre: 'Your name',
+      phEmail: 'Your email',
+      phMensaje: 'How can we help you?',
+      btnEnviar: 'Send message →',
+      successMsg: '✅ Message sent! We\'ll get back to you soon.',
+      siguenos: 'Follow us',
+      entrarApp: 'Open app',
+      avisoPriv: 'Privacy notice',
+    }
+  };
+
+  function setLang(lang) {
+    const t = i18n[lang];
+    document.title = t.title;
+    document.documentElement.lang = lang;
+
+    document.querySelector('.hero-h1').innerHTML = t.heroTitle;
+    document.querySelector('.hero-sub').innerHTML = t.heroSub;
+    document.querySelector('.btn-compra').textContent = t.btnCompra;
+    document.querySelector('.precio-hint').textContent = t.precioHint;
+
+    document.querySelectorAll('.tagline-item').forEach((el, i) => {
+      el.innerHTML = t.taglines[i % 4] + '<span class="dot">·</span>';
+    });
+
+    document.querySelector('.section-intro h2').textContent = t.sectionIntroH2;
+    document.querySelector('.section-intro p').textContent = t.sectionIntroP;
+
+    document.querySelectorAll('.feature-title').forEach((el, i) => el.textContent = t.featureTitles[i]);
+    document.querySelectorAll('.feature-desc').forEach((el, i) => el.textContent = t.featureDescs[i]);
+    document.querySelectorAll('.screenshot-label').forEach((el, i) => el.textContent = t.screenshotLabels[i]);
+
+    document.querySelector('.precio-left h2').innerHTML = t.precioH2;
+    document.querySelector('.precio-left p').textContent = t.precioP;
+    document.querySelector('.precio-badge').textContent = t.precioBadge;
+    document.querySelector('.precio-periodo').textContent = '$499 ' + t.precioPeriodo;
+    document.querySelectorAll('.precio-includes li').forEach((el, i) => el.textContent = t.precioItems[i]);
+    document.querySelector('.btn-empezar').textContent = t.btnEmpezar;
+    document.querySelector('.descuento-hint').textContent = t.descuentoHint;
+
+    const contactSection = document.getElementById('contact-form').closest('section');
+    contactSection.querySelector('h2').textContent = t.contactH2;
+    contactSection.querySelector('p').textContent = t.contactP;
+    document.getElementById('cf-nombre').placeholder = t.phNombre;
+    document.getElementById('cf-email').placeholder = t.phEmail;
+    document.getElementById('cf-mensaje').placeholder = t.phMensaje;
+    document.querySelector('#contact-form button[type="submit"]').textContent = t.btnEnviar;
+    document.getElementById('cf-success').textContent = t.successMsg;
+
+    document.getElementById('siguenos-text').textContent = t.siguenos;
+    document.querySelector('a[href="https://app.myweeklyplanner.app"]').textContent = t.entrarApp;
+    document.querySelector('a[href="/privacidad.html"]').textContent = t.avisoPriv;
+
+    document.getElementById('lang-es-btn').classList.toggle('active', lang === 'es');
+    document.getElementById('lang-en-btn').classList.toggle('active', lang === 'en');
+  }
 </script>
 
 </body>
