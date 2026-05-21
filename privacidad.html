@@ -175,6 +175,7 @@
     font-size: 18px;
     flex-shrink: 0;
   }
+  .section-icon i { width: 18px; height: 18px; }
   .icon-mauve { background: var(--mauve-l); }
   .icon-teal { background: #EAF0E8; }
   .icon-brown { background: #EDE8E0; }
@@ -328,6 +329,7 @@
     .hero { padding: 36px 20px 44px; }
   }
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body data-lang="es">
 
@@ -357,8 +359,8 @@
 <!-- Hero -->
 <div class="hero">
   <div class="hero-tag">
-    <span class="es-text">🔒 Privacidad</span>
-    <span class="en-text">🔒 Privacy</span>
+    <span class="es-text"><i data-lucide="lock" style="width:16px;height:16px;vertical-align:middle;display:inline-block;margin-right:4px;"></i>Privacidad</span>
+    <span class="en-text"><i data-lucide="lock" style="width:16px;height:16px;vertical-align:middle;display:inline-block;margin-right:4px;"></i>Privacy</span>
   </div>
   <h1>
     <span class="es-text">Aviso de Privacidad</span>
@@ -384,7 +386,7 @@
   <!-- Responsable -->
   <div class="section">
     <div class="section-header">
-      <div class="section-icon icon-mauve">👤</div>
+      <div class="section-icon icon-mauve"><i data-lucide="user"></i></div>
       <div class="section-title">
         <span class="es-text">¿Quién es responsable de tus datos?</span>
         <span class="en-text">Who is responsible for your data?</span>
@@ -399,7 +401,7 @@
   <!-- Datos que recopilamos -->
   <div class="section">
     <div class="section-header">
-      <div class="section-icon icon-teal">📋</div>
+      <div class="section-icon icon-teal"><i data-lucide="clipboard-list"></i></div>
       <div class="section-title">
         <span class="es-text">¿Qué datos recopilamos?</span>
         <span class="en-text">What data do we collect?</span>
@@ -432,7 +434,7 @@
   <!-- Para qué los usamos -->
   <div class="section">
     <div class="section-header">
-      <div class="section-icon icon-mauve">🎯</div>
+      <div class="section-icon icon-mauve"><i data-lucide="target"></i></div>
       <div class="section-title">
         <span class="es-text">¿Para qué usamos tus datos?</span>
         <span class="en-text">How do we use your data?</span>
@@ -472,7 +474,7 @@
   <!-- Almacenamiento -->
   <div class="section">
     <div class="section-header">
-      <div class="section-icon icon-teal">🗄️</div>
+      <div class="section-icon icon-teal"><i data-lucide="database"></i></div>
       <div class="section-title">
         <span class="es-text">¿Dónde se almacenan tus datos?</span>
         <span class="en-text">Where is your data stored?</span>
@@ -489,7 +491,7 @@
   <!-- Derechos ARCO -->
   <div class="section">
     <div class="section-header">
-      <div class="section-icon icon-mauve">⚖️</div>
+      <div class="section-icon icon-mauve"><i data-lucide="scale"></i></div>
       <div class="section-title">
         <span class="es-text">Tus derechos ARCO</span>
         <span class="en-text">Your ARCO Rights</span>
@@ -553,7 +555,7 @@
   <!-- Cookies -->
   <div class="section">
     <div class="section-header">
-      <div class="section-icon icon-teal">🍪</div>
+      <div class="section-icon icon-teal"><i data-lucide="cookie"></i></div>
       <div class="section-title">
         <span class="es-text">Cookies y rastreo</span>
         <span class="en-text">Cookies and tracking</span>
@@ -570,7 +572,7 @@
   <!-- Cambios -->
   <div class="section">
     <div class="section-header">
-      <div class="section-icon icon-brown">📝</div>
+      <div class="section-icon icon-brown"><i data-lucide="pencil-line"></i></div>
       <div class="section-title">
         <span class="es-text">Cambios a este aviso</span>
         <span class="en-text">Changes to this notice</span>
@@ -614,5 +616,6 @@
   }
 </script>
 
+<script>lucide.createIcons();</script>
 </body>
 </html>

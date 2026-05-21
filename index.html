@@ -259,6 +259,11 @@
     margin-bottom: 14px;
     display: block;
   }
+  .feature-icon i {
+    width: 36px;
+    height: 36px;
+    display: block;
+  }
   .feature-title {
     font-family: 'Barlow Condensed', sans-serif;
     font-size: 22px;
@@ -544,6 +549,7 @@
     transform: translateY(0);
   }
 </style>
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 <div class="lang-toggle">
@@ -631,13 +637,13 @@
           <text id="hero-gastos-count" x="20" y="254" font-family="system-ui" font-size="7" fill="#999">3 gastos hoy</text>
           <rect x="114" y="196" width="94" height="70" rx="8" fill="#FFF0F5"/>
           <text x="122" y="210" font-family="system-ui" font-size="7" font-weight="600" fill="#FF7BB2" letter-spacing="1">WORKOUT</text>
-          <text x="122" y="226" font-family="system-ui" font-size="11" fill="#1C2B3A">🎾 Tennis</text>
-          <text x="122" y="242" font-family="system-ui" font-size="11" fill="#1C2B3A">🤿 Apnea</text>
-          <text x="122" y="255" font-family="system-ui" font-size="7" fill="#999">🙏 Meditar</text>
+          <text x="122" y="226" font-family="system-ui" font-size="11" fill="#1C2B3A">Tennis</text>
+          <text x="122" y="242" font-family="system-ui" font-size="11" fill="#1C2B3A">Apnea</text>
+          <text x="122" y="255" font-family="system-ui" font-size="7" fill="#999">Meditar</text>
           <!-- Shopping list -->
           <rect x="12" y="272" width="196" height="88" rx="8" fill="#f8f6f4"/>
           <text id="hero-lista-titulo" x="20" y="286" font-family="system-ui" font-size="7" font-weight="600" fill="#999" letter-spacing="1">LISTA DE COMPRAS</text>
-          <text id="hero-lista-tienda" x="20" y="298" font-family="system-ui" font-size="8" font-weight="600" fill="#7D8B6A">🛒 Supermercado</text>
+          <text id="hero-lista-tienda" x="20" y="298" font-family="system-ui" font-size="8" font-weight="600" fill="#7D8B6A">Supermercado</text>
           <rect x="20" y="303" width="8" height="8" rx="2" fill="white" stroke="#ddd"/>
           <text id="hero-lista-item1" x="32" y="311" font-family="system-ui" font-size="8" fill="#555">Tomates</text>
           <rect x="20" y="315" width="8" height="8" rx="2" fill="white" stroke="#ddd"/>
@@ -648,10 +654,10 @@
           <!-- Bottom nav -->
           <rect x="8" y="368" width="204" height="32" rx="0" fill="white"/>
           <line x1="8" y1="368" x2="212" y2="368" stroke="#eee" stroke-width="1"/>
-          <text x="38" y="388" font-family="system-ui" font-size="14" text-anchor="middle">💰</text>
-          <text x="84" y="388" font-family="system-ui" font-size="14" text-anchor="middle">📊</text>
-          <text x="130" y="388" font-family="system-ui" font-size="14" text-anchor="middle">🗄️</text>
-          <text x="176" y="388" font-family="system-ui" font-size="14" text-anchor="middle">⚙️</text>
+          <text x="38" y="388" font-family="system-ui" font-size="14" text-anchor="middle"></text>
+          <text x="84" y="388" font-family="system-ui" font-size="14" text-anchor="middle"></text>
+          <text x="130" y="388" font-family="system-ui" font-size="14" text-anchor="middle"></text>
+          <text x="176" y="388" font-family="system-ui" font-size="14" text-anchor="middle"></text>
           <!-- Bottom rounded corners clipping -->
           <rect x="8" y="400" width="204" height="32" rx="29" fill="white"/>
           </g>
@@ -687,22 +693,22 @@
 <!-- ── FEATURES ────────────────────────── -->
 <div class="features">
   <div class="feature-card fade-up">
-    <span class="feature-icon">📅</span>
+    <span class="feature-icon"><i data-lucide="calendar-days"></i></span>
     <div class="feature-title">Tu semana</div>
     <div class="feature-desc">Vista semanal clara. Navega entre días, ve tus eventos y pendientes de un vistazo.</div>
   </div>
   <div class="feature-card fade-up">
-    <span class="feature-icon">💰</span>
+    <span class="feature-icon"><i data-lucide="receipt"></i></span>
     <div class="feature-title">Gastos</div>
     <div class="feature-desc">Registra lo que gastas cada día por categoría. Sin hojas de cálculo, sin drama.</div>
   </div>
   <div class="feature-card fade-up">
-    <span class="feature-icon">📊</span>
+    <span class="feature-icon"><i data-lucide="bar-chart-2"></i></span>
     <div class="feature-title">Presupuesto</div>
     <div class="feature-desc">Planea tu mes, controla tus deudas y ve exactamente cuánto te queda disponible.</div>
   </div>
   <div class="feature-card fade-up">
-    <span class="feature-icon">💪</span>
+    <span class="feature-icon"><i data-lucide="dumbbell"></i></span>
     <div class="feature-title">Hábitos</div>
     <div class="feature-desc">Workouts, hábitos diarios y lista de compras. Todo en un solo lugar, siempre contigo.</div>
   </div>
@@ -739,13 +745,13 @@
       <svg width="180" height="140" viewBox="0 0 180 140">
         <text id="svg-gastos-titulo" x="8" y="16" font-family="system-ui" font-size="8" font-weight="600" fill="#999" letter-spacing="1">GASTOS DEL DÍA</text>
         <rect x="4" y="22" width="172" height="20" rx="4" fill="white"/>
-        <text id="svg-gastos-item1" x="10" y="35" font-family="system-ui" font-size="9" fill="#333">🛒 Supermercado</text>
+        <text id="svg-gastos-item1" x="10" y="35" font-family="system-ui" font-size="9" fill="#333">Supermercado</text>
         <text x="148" y="35" font-family="system-ui" font-size="9" font-weight="600" fill="#333">$850</text>
         <rect x="4" y="46" width="172" height="20" rx="4" fill="white"/>
-        <text x="10" y="59" font-family="system-ui" font-size="9" fill="#333">🚗 Uber</text>
+        <text x="10" y="59" font-family="system-ui" font-size="9" fill="#333">Uber</text>
         <text x="148" y="59" font-family="system-ui" font-size="9" font-weight="600" fill="#333">$180</text>
         <rect x="4" y="70" width="172" height="20" rx="4" fill="white"/>
-        <text id="svg-gastos-item3" x="10" y="83" font-family="system-ui" font-size="9" fill="#333">🍽 Restaurante</text>
+        <text id="svg-gastos-item3" x="10" y="83" font-family="system-ui" font-size="9" fill="#333">Restaurante</text>
         <text x="148" y="83" font-family="system-ui" font-size="9" font-weight="600" fill="#FF7BB2">$420</text>
         <rect x="4" y="100" width="172" height="24" rx="4" fill="#0D1B4B"/>
         <text id="svg-gastos-total" x="10" y="115" font-family="system-ui" font-size="9" font-weight="600" fill="#EDE8E0">Total semana</text>
@@ -810,7 +816,7 @@
       <li>Google Calendar sync</li>
     </ul>
     <a href="https://app.myweeklyplanner.app" class="btn-empezar">Empezar ahora →</a>
-    <p class="descuento-hint">🏷️ ¿Tienes código de descuento? Lo aplicas al comprar.</p>
+    <p class="descuento-hint">¿Tienes código de descuento? Lo aplicas al comprar.</p>
   </div>
 </section>
 
@@ -834,7 +840,7 @@
     </button>
   </form>
   <div id="cf-success" style="display:none;margin-top:20px;padding:16px 24px;background:white;border:2px solid var(--navy);border-radius:8px;font-size:14px;color:var(--navy);font-weight:500;box-shadow:4px 4px 0 var(--navy);">
-    ✅ ¡Mensaje enviado! Te respondemos pronto.
+    ¡Mensaje enviado! Te respondemos pronto.
   </div>
 
   <!-- Instagram -->
@@ -919,22 +925,22 @@
       precioPeriodo: 'MXN / año — menos de $42 al mes',
       precioItems: ['Vista semanal y diaria','Gastos y categorías','Presupuesto mensual','Préstamos y deudas','Hábitos y workouts','Lista de compras','Reporte mensual','Respaldos automáticos','Google Calendar sync'],
       btnEmpezar: 'Empezar ahora →',
-      descuentoHint: '🏷️ ¿Tienes código de descuento? Lo aplicas al comprar.',
+      descuentoHint: '¿Tienes código de descuento? Lo aplicas al comprar.',
       contactH2: '¿Tienes preguntas?',
       contactP: 'Escríbenos y te respondemos a la brevedad.',
       phNombre: 'Tu nombre',
       phEmail: 'Tu correo',
       phMensaje: '¿En qué te podemos ayudar?',
       btnEnviar: 'Enviar mensaje →',
-      successMsg: '✅ ¡Mensaje enviado! Te respondemos pronto.',
+      successMsg: '¡Mensaje enviado! Te respondemos pronto.',
       siguenos: 'Síguenos',
       entrarApp: 'Entrar al app',
       avisoPriv: 'Aviso de privacidad',
       contactoLink: 'Contacto',
       svgSemana: 'Semana 6–12 Abril',
       svgGastosTitulo: 'GASTOS DEL DÍA',
-      svgGastosItem1: '🛒 Supermercado',
-      svgGastosItem3: '🍽 Restaurante',
+      svgGastosItem1: 'Supermercado',
+      svgGastosItem3: 'Restaurante',
       svgGastosTotal: 'Total semana',
       svgPresupCat: 'HOGAR',
       svgPresupR1: 'Renta',
@@ -948,7 +954,7 @@
       heroGastosHoy: 'GASTOS HOY',
       heroGastosCount: '3 gastos hoy',
       heroListaTitulo: 'LISTA DE COMPRAS',
-      heroListaTienda: '🛒 Supermercado',
+      heroListaTienda: 'Supermercado',
       heroListaItem1: 'Tomates',
       heroListaItem2: 'Aguacates',
       heroListaItem3: 'Leche',
@@ -976,22 +982,22 @@
       precioPeriodo: 'MXN / year — less than $42/month',
       precioItems: ['Weekly and daily view','Expenses and categories','Monthly budget','Loans and debts','Habits and workouts','Shopping list','Monthly report','Automatic backups','Google Calendar sync'],
       btnEmpezar: 'Get started →',
-      descuentoHint: '🏷️ Have a discount code? Apply it at checkout.',
+      descuentoHint: 'Have a discount code? Apply it at checkout.',
       contactH2: 'Have questions?',
       contactP: 'Write to us and we\'ll get back to you shortly.',
       phNombre: 'Your name',
       phEmail: 'Your email',
       phMensaje: 'How can we help you?',
       btnEnviar: 'Send message →',
-      successMsg: '✅ Message sent! We\'ll get back to you soon.',
+      successMsg: 'Message sent! We\'ll get back to you soon.',
       siguenos: 'Follow us',
       entrarApp: 'Open app',
       avisoPriv: 'Privacy notice',
       contactoLink: 'Contact',
       svgSemana: 'Week Apr 6–12',
       svgGastosTitulo: 'DAILY EXPENSES',
-      svgGastosItem1: '🛒 Grocery',
-      svgGastosItem3: '🍽 Restaurant',
+      svgGastosItem1: 'Grocery',
+      svgGastosItem3: 'Restaurant',
       svgGastosTotal: 'Weekly total',
       svgPresupCat: 'HOME',
       svgPresupR1: 'Rent',
@@ -1005,7 +1011,7 @@
       heroGastosHoy: 'TODAY\'S EXPENSES',
       heroGastosCount: '3 expenses today',
       heroListaTitulo: 'SHOPPING LIST',
-      heroListaTienda: '🛒 Grocery',
+      heroListaTienda: 'Grocery',
       heroListaItem1: 'Tomatoes',
       heroListaItem2: 'Avocados',
       heroListaItem3: 'Milk',
@@ -1082,6 +1088,7 @@
     document.getElementById('lang-es-btn').classList.toggle('active', lang === 'es');
     document.getElementById('lang-en-btn').classList.toggle('active', lang === 'en');
   }
+  lucide.createIcons();
 </script>
 
 </body>
